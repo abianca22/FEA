@@ -1,0 +1,14 @@
+<div class="card text-center">
+    <h5 class="card-header">{{ office.name }}</h5>
+    <div class="card-body">
+      <h5 class="card-title">Descriere</h5>
+      <p class="card-text">{{ office.description }}</p>
+      <button type="button" class="btn btn-dark" (click)="click(officeIndex)">
+        {{ office.name }}
+      </button>
+      <div *ngIf="office.display">
+        <br/>
+    <app-user [officeId]="office.id"></app-user>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<div *ngFor="let user of usersFromOffice; index as i">
+    <li>{{user.username}}</li>
+</div>
+<div *ngIf="noUsers">Nu exista useri in acest birou</div>

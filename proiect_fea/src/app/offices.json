@@ -1,0 +1,25 @@
+{
+    "offices": [
+        {
+            "name": "Biroul 1",
+            "id": 1,
+            "display": false,
+            "description": "Aici vei gasi cei mai veseli utilizatori ai aplicatiei noastre",
+            "users": [1]            
+        },
+        {
+            "name": "Biroul 2",
+            "id": 2,
+            "display": false,
+            "description": "Aici vei gasi cei mai seriosi utilizatori ai aplicatiei noastre",
+            "users": [2]
+        },
+        {
+            "name": "Biroul 3",
+            "id": 3,
+            "display": false,
+            "description": "Aici vei gasi cei mai prietenosi utilizatori ai aplicatiei noastre",
+            "users": [-1]
+        }
+    ]
+}

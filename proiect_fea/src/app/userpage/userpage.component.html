@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div
+    class="card col-md-8 mt-lg-3 mb-lg-3 border-light-subtle"
+    style="
+      background-color: rgb(19, 39, 79);
+      background-color: rgba(19, 39, 79, 0.541);
+    "
+  >
+    <div class="card-body text-center">
+      <br />
+      <h1 id="welcomeMessage">Bine ai venit!</h1>
+      <br />
+      <br />
+      <h3 id="guidanceMessage">
+        Aici ai o lista cu utilizatorii acestei aplicatii,<br />impreuna cu
+        biroul din care face parte fiecare
+      </h3>
+      <br />
+      <a routerLink="/offices" class="btn btn-dark m-2">Vezi toate birourile</a>
+      <a routerLink="/signup" class="btn btn-dark m-2">Logout</a>
+
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10 d-flex justify-content-center">
+    <div class="row">
+      <div class="p-2 col-md-6" *ngFor="let user of users; index as i">
+        <div class="card text-center">
+            <button class="btn btn-dark" (click)="onSelect(user)">Click aici</button>
+          <h5 class="card-header">Username: {{ user.username }}</h5>
+          <div class="card-body">
+            <h5 class="card-title">Prenume: {{ user.firstname }}</h5>
+            <h5 class="card-title">Nume: {{ user.lastname }}</h5>
+            <p class="card-text">Adresa de contact: {{ user.address }}</p>
+          </div>
+          <p class="card-footer">Birou: {{ mapUsers.get(user.id) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>

@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div
+      class="card col-md-6 mt-lg-5 mb-lg-5 border-light-subtle"
+      style="
+        background-color: rgb(19, 39, 79);
+        background-color: rgba(19, 39, 79, 0.541);"
+    >
+      <div class="card-body text-center">
+        <br />
+        <h1 id="welcomeMessage">Bine ai revenit, {{ findUserById.username }}!</h1>
+        <br />
+        <br />
+        <h3 id="guidanceMessage">
+            Acesta este profilul tau
+        </h3>
+        <br />
+        <a routerLink="/offices" class="btn btn-dark m-2">Vezi toate birourile</a>
+        <a routerLink="/allUsers" class="btn btn-dark m-2">Vezi toti utilizatorii</a>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3"></div>
+<div id="userProfileDetails" class="col-md-6">
+<h5>Username: {{findUserById.username}}</h5>
+<h5>Nume: {{findUserById.lastname}}</h5>
+<h5>Prenume: {{findUserById.firstname}}</h5>
+<h5>Adresa de contact: {{findUserById.address}}</h5>
+<h5>Birou: {{mapUsers.get(findUserById.id)}}</h5>
+</div>
+<div class="col-md-3"></div>
+</div>
