@@ -15,6 +15,14 @@
             "password": "user2123",
             "firstname": "Prenume-Utilizator 2",
             "lastname": "Nume-Utilizator 2"
+        },
+        {
+            "id": 3,
+            "username": "user3",
+            "address": "user3@test.com",
+            "password": "user3123",
+            "firstname": "Prenume-Utilizator 3",
+            "lastname": "Nume-Utilizator 3"
         }
     ]
 }

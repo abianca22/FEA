@@ -7,6 +7,12 @@
                 </div>
                 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
+                        <input type="text" id="lastname" placeholder="Nume" class="form-control" formControlName="lastname"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="firstname" placeholder="Prenume" class="form-control" formControlName="firstname"/>
+                    </div>
+                    <div class="form-group">
                         <input type="text" id="username" placeholder="Username" class="form-control" formControlName="username"/>
                     </div>
                     <div class="form-group">

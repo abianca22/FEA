@@ -45,8 +45,8 @@ export class UserService {
     return findOffice;
   }
 
-  addUser(username: string | undefined | null, email: string | undefined | null, password: string | undefined | null) {
-    this.users.push({id: this.users.length + 1, username: username, email: email, password: password});
+  addUser(username: string | undefined | null, email: string | undefined | null, password: string | undefined | null, firstname: string | undefined | null, lastname: string | undefined | null) {
+    this.users.push({id: this.users.length + 1, username: username, email: email, password: password, lastname: lastname, firstname: firstname});
     console.log(this.users);
   }
   }

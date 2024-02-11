@@ -14,7 +14,9 @@ export class SignupComponent implements OnInit {
   signupForm = this.formBuilder.group({
     username: '',
     email: '',
-    password: ''
+    password: '',
+    lastname: '',
+    firstname: ''
   });
 
   constructor(private formBuilder: FormBuilder, private router: Router, private _userService: UserService, private authService: AuthService) {
@@ -31,7 +33,7 @@ export class SignupComponent implements OnInit {
       if (user.username === formValue.username || user.email === formValue.email)
       ok = false;
     }
-    if(ok) this._userService.addUser(this.signupForm.value.username, this.signupForm.value.email, this.signupForm.value.password);
+    if(ok) this._userService.addUser(this.signupForm.value.username, this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.lastname, this.signupForm.value.firstname);
     console.log(this._userService.getUsers());
     this.authService.login();
     this.router.navigate(['/offices']);
