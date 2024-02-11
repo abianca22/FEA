@@ -46,7 +46,7 @@ export class UserService {
   }
 
   addUser(username: string | undefined | null, email: string | undefined | null, password: string | undefined | null) {
-    this.users.push({id: this.users.length, username: username, email: email, password: password});
+    this.users.push({id: this.users.length + 1, username: username, email: email, password: password});
     console.log(this.users);
   }
   }

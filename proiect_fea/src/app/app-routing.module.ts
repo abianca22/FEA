@@ -6,12 +6,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
+import { SignupComponent } from './signup/signup.component';
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/signup', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent},
   { path: 'offices', component: TestComponent, canActivate: [AuthGuard] },
   { path: 'allUsers', component: UserpageComponent, canActivate: [AuthGuard]},
   { path: 'profile/:id', component: UserProfileComponent, canActivate: [AuthGuard]},
-  { path: 'signup', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -25,5 +27,6 @@ export const routingComponents = [
   UserpageComponent,
   PageNotFoundComponent,
   UserProfileComponent,
+  SignupComponent,
   LoginComponent,
 ];

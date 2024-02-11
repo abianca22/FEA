@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { AuthService } from '../auth.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,41 +12,40 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   
-  signupUsers: any[] = [];
-  signupObj: any = {
-    username: '',
-    email: '',
-    password: ''
-  };
+  ok = false;
 
-  loginObj: any = {
+  public users: any[] = [];
+
+  loginUser: any = {
     username: '',
     password: ''
   };
 
-  signupForm = this.formBuilder.group({
-    username: '',
-    email: '',
-    password: ''
-  });
-
-  constructor(private formBuilder: FormBuilder, private router: Router, private _userService: UserService, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private _userService: UserService, private authService: AuthService, private _loginService: LoginService) {
 
   }
+
   ngOnInit(): void {
-    
+    this.users = this._userService.getUsers();
   }
 
   onSubmit() {
-    let ok: boolean = true;
-    let formValue = this.signupForm.value;
-    for(let user of this._userService.getUsers()) {
-      if (user.username === formValue.username || user.email === formValue.email)
-      ok = false;
-    }
-    if(ok) this._userService.addUser(this.signupForm.value.username, this.signupForm.value.email, this.signupForm.value.password);
-    console.log(this._userService.getUsers());
-    this.authService.login();
-    this.router.navigate(['/offices']);
+  this._loginService.login(this.loginUser.username, this.loginUser.password).subscribe(
+    data => {
+      console.log('Success!', data); 
+      this.authService.login();
+      this.router.navigate(['/offices']);
+    },
+    error => console.error('Error!', error)
+  );
   }
+
+  validateUser(username: string, password: string) {
+    for(let i = 0; i < this.users.length; i++) {
+      if(username === this.users[i].username && password === this.users[i].password) this.ok = true;
+    }
+
+    return this.ok;
+  }
+  
 }
